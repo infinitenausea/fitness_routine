@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Программа тренировок</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            text-align: center;
+            color: #667eea;
+            margin-bottom: 10px;
+            font-size: 28px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 14px;
+        }
+
+        .phase {
+            margin-bottom: 30px;
+        }
+
+        .phase-title {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .phase-time {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        th {
+            background: #f8f9fa;
+            color: #333;
+            padding: 12px;
+            text-align: left;
+            font-weight: 600;
+            border-bottom: 2px solid #667eea;
+        }
+
+        td {
+            padding: 12px;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        tr:hover {
+            background: #f8f9fa;
+        }
+
+        .exercise-name {
+            font-weight: 600;
+            color: #333;
+        }
+
+        .reps {
+            color: #667eea;
+            font-weight: 600;
+        }
+
+        .notes {
+            font-size: 13px;
+            color: #666;
+            font-style: italic;
+        }
+
+        .progress-section {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 30px;
+        }
+
+        .progress-title {
+            font-weight: bold;
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+
+        .week-plan {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .week-day {
+            background: white;
+            padding: 12px;
+            border-radius: 6px;
+            text-align: center;
+            border: 2px solid #e9ecef;
+        }
+
+        .week-day.active {
+            border-color: #667eea;
+            background: #f0f4ff;
+        }
+
+        .day-name {
+            font-weight: bold;
+            color: #667eea;
+            margin-bottom: 5px;
+        }
+
+        .day-activity {
+            font-size: 13px;
+            color: #666;
+        }
+
+        .tips {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .tip {
+            background: white;
+            padding: 15px;
+            border-radius: 6px;
+            border-left: 4px solid #667eea;
+        }
+
+        .tip-title {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .tip-text {
+            font-size: 13px;
+            color: #666;
+        }
+
+        .circles {
+            text-align: center;
+            margin: 20px 0;
+            padding: 15px;
+            background: #fff3cd;
+            border-radius: 8px;
+            border: 2px solid #ffc107;
+        }
+
+        .circles strong {
+            color: #856404;
+        }
+
+        @media print {
+            body {
+                background: white;
+            }
+
+            .container {
+                box-shadow: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>📋 Утренняя программа тренировок</h1>
+        <div class="subtitle">Мужчина • 176 см • 83 кг • Начальный уровень</div>
+
+        <div class="circles">
+            <strong>⚡ КРУГОВАЯ ТРЕНИРОВКА: 2-3 КРУГА</strong><br>
+            Отдых между упражнениями: 30-45 сек | Отдых между кругами: 2-3 мин
+        </div>
+
+        <!-- Разминка -->
+        <div class="phase">
+            <div class="phase-title">
+                <span>🏃 1. РАЗМИНКА</span>
+                <span class="phase-time">8-10 минут</span>
+            </div>
+            <table>
+                <tr>
+                    <th style="width: 40%">Упражнение</th>
+                    <th style="width: 25%">Количество</th>
+                    <th style="width: 35%">Примечания</th>
+                </tr>
+                <tr>
+                    <td class="exercise-name">Ходьба на дорожке</td>
+                    <td class="reps">5-6 минут</td>
+                    <td class="notes">Постепенно увеличивать темп</td>
+                </tr>
+                <tr>
+                    <td class="exercise-name">Вращения руками</td>
+                    <td class="reps">10 вперёд/назад</td>
+                    <td class="notes">Плавные круговые движения</td>
+                </tr>
+                <tr>
+                    <td class="exercise-name">Вращения корпусом</td>
+                    <td class="reps">10 в каждую сторону</td>
+                    <td class="notes">Руки на поясе</td>
+                </tr>
+                <tr>
+                    <td class="exercise-name">Наклоны в стороны</td>
+                    <td class="reps">8 в каждую сторону</td>
+                    <td class="notes">Одна рука тянется вверх</td>
+                </tr>
+                <tr>
+                    <td class="exercise-name">Подъём коленей</td>
+                    <td class="reps">10 каждой ногой</td>
+                    <td class="notes">Колено к груди</td>
+                </tr>
+                <tr>
+                    <td class="exercise-name">Махи руками</td>
+                    <td class="reps">10 раз</td>
+                    <td class="notes">Вверх-вниз</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Основной блок -->
+        <div class="phase">
+            <div class="phase-title">
+                <span>💪 2. ОСНОВНОЙ БЛОК</span>
+                <span class="phase-time">30-35 минут</span>
+            </div>
+
+            <h3 style="color: #667eea; margin-top: 20px;">А. Нижняя часть тела + кардио</h3>
+            <table>
+                <tr>
+                    <th style="width: 40%">Упражнение</th>
+                    <th style="width: 25%">Повторения</th>
+                    <th style="width: 35%">Техника</th>
+                </tr>
+                <tr>
+                    <td class="exercise-name">1. Гоблет-приседания 🏋️</td>
+                    <td class="reps">8-12 раз</td>
+                    <td class="notes">Гиря у груди двумя руками</td>
+                </tr>
+                <tr>
+                    <td class="exercise-name">2. Румынская тяга 🏋️</td>
+                    <td class="reps">10-12 раз</td>
+                    <td class="notes">Гиря двумя руками, таз назад</td>
+                </tr>
+                <tr>
+                    <td class="exercise-name">3. Русские махи 🏋️</td>
+                    <td class="reps">12-15 раз</td>
+                    <td class="notes">До уровня груди, движение от бёдер</td>
+                </tr>
+                <tr>
+                    <td class="exercise-name">4. Выпады назад</td>
+                    <td class="reps">8 на каждую ногу</td>
+                    <td class="notes">Без веса или с петлёй</td>
+                </tr>
+            </table>
+
+            <h3 style="color: #667eea; margin-top: 20px;">Б. Верхняя часть тела</h3>
+            <table>
+                <tr>
+                    <th style="width: 40%">Упражнение</th>
+                    <th style="width: 25%">Повторения</th>
+                    <th style="width: 35%">Техника</th>
+                </tr>
+                <tr>
+                    <td class="exercise-name">5. Жим гири над головой 🏋️</td>
+                    <td class="reps">8-12 раз</td>
+                    <td class="notes">Двумя руками, пресс напряжён</td>
+                </tr>
+                <tr>
+                    <td class="exercise-name">6. Тяга гири в наклоне 🏋️</td>
+                    <td class="reps">10-12 раз</td>
+                    <td class="notes">Двумя руками, сводим лопатки</td>
+                </tr>
+                <tr>
+                    <td class="exercise-name">7. Отжимания</td>
+                    <td class="reps">8-12 раз</td>
+                    <td class="notes">От колен или возвышенности</td>
+                </tr>
+                <tr>
+                    <td class="exercise-name">8. Тяга петли к груди 🎗️</td>
+                    <td class="reps">12-15 раз</td>
+                    <td class="notes">Петля на уровне груди</td>
+                </tr>
+                <tr>
+                    <td class="exercise-name">9. Жим петли от груди 🎗️</td>
+                    <td class="reps">12-15 раз</td>
+                    <td class="notes">Петля за спиной</td>
+                </tr>
+            </table>
+
+            <h3 style="color: #667eea; margin-top: 20px;">В. Кор (центр тела)</h3>
+            <table>
+                <tr>
+                    <th style="width: 40%">Упражнение</th>
+                    <th style="width: 25%">Повторения</th>
+                    <th style="width: 35%">Техника</th>
+                </tr>
+                <tr>
+                    <td class="exercise-name">10. Планка на предплечьях</td>
+                    <td class="reps">20-40 сек × 2</td>
+                    <td class="notes">Спина прямая, не провисать</td>
+                </tr>
+                <tr>
+                    <td class="exercise-name">11. Скручивания лёжа</td>
+                    <td class="reps">12-15 раз</td>
+                    <td class="notes">Только лопатки от пола</td>
+                </tr>
+                <tr>
+                    <td class="exercise-name">12. "Мёртвый жук"</td>
+                    <td class="reps">10 на каждую сторону</td>
+                    <td class="notes">Противоположная рука-нога</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Кардио -->
+        <div class="phase">
+            <div class="phase-title">
+                <span>🏃 3. КАРДИО</span>
+                <span class="phase-time">5 минут</span>
+            </div>
+            <table>
+                <tr>
+                    <th style="width: 40%">Упражнение</th>
+                    <th style="width: 25%">Время</th>
+                    <th style="width: 35%">Примечания</th>
+                </tr>
+                <tr>
+                    <td class="exercise-name">Ходьба на дорожке</td>
+                    <td class="reps">5 минут</td>
+                    <td class="notes">Можно интервалами: 1 мин быстро - 1 мин спокойно</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Заминка -->
+        <div class="phase">
+            <div class="phase-title">
+                <span>🧘 4. ЗАМИНКА</span>
+                <span class="phase-time">7-10 минут</span>
+            </div>
+            <table>
+                <tr>
+                    <th style="width: 40%">Упражнение</th>
+                    <th style="width: 25%">Время</th>
+                    <th style="width: 35%">Примечания</th>
+                </tr>
+                <tr>
+                    <td class="exercise-name">Ходьба медленная</td>
+                    <td class="reps">3 минуты</td>
+                    <td class="notes">Восстановление дыхания</td>
+                </tr>
+                <tr>
+                    <td class="exercise-name">Растяжка квадрицепсов</td>
+                    <td class="reps">30 сек × 2</td>
+                    <td class="notes">Каждая нога</td>
+                </tr>
+                <tr>
+                    <td class="exercise-name">Растяжка бицепса бедра</td>
+                    <td class="reps">30 сек × 2</td>
+                    <td class="notes">Наклон к ноге</td>
+                </tr>
+                <tr>
+                    <td class="exercise-name">Растяжка грудных</td>
+                    <td class="reps">30 сек</td>
+                    <td class="notes">Руки в дверном проёме</td>
+                </tr>
+                <tr>
+                    <td class="exercise-name">Растяжка плеч</td>
+                    <td class="reps">30 сек × 2</td>
+                    <td class="notes">Каждая рука</td>
+                </tr>
+                <tr>
+                    <td class="exercise-name">Поза кошки-коровы</td>
+                    <td class="reps">1 минута</td>
+                    <td class="notes">Для спины</td>
+                </tr>
+                <tr>
+                    <td class="exercise-name">Поза кобры</td>
+                    <td class="reps">30 сек</td>
+                    <td class="notes">Растяжка пресса</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- График недели -->
+        <div class="progress-section">
+            <div class="progress-title">📅 График недели</div>
+            <div class="week-plan">
+                <div class="week-day active">
+                    <div class="day-name">ПН</div>
+                    <div class="day-activity">Тренировка</div>
+                </div>
+                <div class="week-day active">
+                    <div class="day-name">ВТ</div>
+                    <div class="day-activity">Тренировка</div>
+                </div>
+                <div class="week-day">
+                    <div class="day-name">СР</div>
+                    <div class="day-activity">Отдых / Ходьба 30 мин</div>
+                </div>
+                <div class="week-day active">
+                    <div class="day-name">ЧТ</div>
+                    <div class="day-activity">Тренировка</div>
+                </div>
+                <div class="week-day active">
+                    <div class="day-name">ПТ</div>
+                    <div class="day-activity">Тренировка</div>
+                </div>
+                <div class="week-day active">
+                    <div class="day-name">СБ</div>
+                    <div class="day-activity">Тренировка</div>
+                </div>
+                <div class="week-day">
+                    <div class="day-name">ВС</div>
+                    <div class="day-activity">Отдых</div>
+                </div>
+            </div>
+
+            <div class="progress-title">📈 Прогрессия нагрузки</div>
+            <div class="tips">
+                <div class="tip">
+                    <div class="tip-title">Недели 1-2</div>
+                    <div class="tip-text">2 круга, отдых 3 мин между кругами. Фокус на технику!</div>
+                </div>
+                <div class="tip">
+                    <div class="tip-title">Недели 3-4</div>
+                    <div class="tip-text">2-3 круга, отдых 2-3 мин. Увеличивайте повторения.</div>
+                </div>
+                <div class="tip">
+                    <div class="tip-title">Неделя 5+</div>
+                    <div class="tip-text">3 круга, отдых 2 мин. Переход к усложнённым вариантам.</div>
+                </div>
+            </div>
+
+            <div class="progress-title" style="margin-top: 20px;">⚠️ Важные правила</div>
+            <div class="tips">
+                <div class="tip">
+                    <div class="tip-title">💧 Вода</div>
+                    <div class="tip-text">Пейте между кругами. Стакан воды перед тренировкой.</div>
+                </div>
+                <div class="tip">
+                    <div class="tip-title">🍌 Питание</div>
+                    <div class="tip-text">Лёгкий перекус за 40-60 мин. Завтрак через 30-45 мин после.</div>
+                </div>
+                <div class="tip">
+                    <div class="tip-title">😴 Сон</div>
+                    <div class="tip-text">Минимум 7-8 часов для восстановления мышц.</div>
+                </div>
+                <div class="tip">
+                    <div class="tip-title">👂 Слушайте тело</div>
+                    <div class="tip-text">Дискомфорт — норма. Острая боль — стоп! Возьмите отдых.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
